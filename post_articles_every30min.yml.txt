@@ -19,7 +19,7 @@ jobs:
           python-version: '3.10'
 
       - name: 📦 Install Dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r requirement.txt
 
       - name: 📝 Run Article Posting Script
         env:
@@ -28,7 +28,7 @@ jobs:
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
           BLOG_ID: ${{ secrets.BLOG_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python main.py
+        run: python pies.py
 
       - name: 💾 Commit updated posted_articles.json
         run: |
