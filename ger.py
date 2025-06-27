@@ -1,5 +1,5 @@
 import requests
-
+#create blog
 def create_blog(title, description, access_token):
     url = 'https://www.googleapis.com/blogger/v3/users/self/blogs'
     headers = {
@@ -46,7 +46,7 @@ def post_to_blogger(blog_id, title, content, access_token, labels=None, meta_des
         print(f"Posted article titled '{post['title']}' with ID {post['id']}")
         return post['id']
     else:
-        raise Exception(f"Failed to post article: {response.text}")
+        raise Exception(f"unsucced to post blog: {response.text}")
 
 
 
