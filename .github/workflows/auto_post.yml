@@ -1,4 +1,4 @@
-name: ✍️ Auto Post Articles Every 30 Minutes
+name: ✍Auto writing blogs  Every 30 Minutes
 
 on:
   schedule:
