@@ -36,7 +36,7 @@ def get_access_token():
         return 
    # Gemini
 def generate_article(topic: str) -> str:
-    url = f"https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=AIzaSyDSOgakd0CgLzG0h8C1ZXIjMV7OavNax9c"
+    url = f"https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent?key=AIzaSyBbQdBX9UGp6D2u_h8uETIdETrohLOKX6E"
     
     headers = {
         "Content-Type": "application/json"
@@ -68,7 +68,7 @@ Avoid robotic language, repetition, or markdown. Output plain text only. Around 
         result = response.json()
         return result["candidates"][0]["content"]["parts"][0]["text"].strip()
     except Exception as e:
-        print("❌ falling generating article with Gemini:", e)
+        print("😡🥵falling generating article with Gemini:", e)
         return "This is a default article content due to an error in generating the article."
         #img.html
 def get_image_html(topic: str) -> str:
@@ -78,7 +78,7 @@ def get_image_html(topic: str) -> str:
 
     for attempt in range(3):
         try:
-            print(f"🖼️ محاولة تحميل الصورة رقم {attempt + 1}")
+            print(f"🖼️ محاولة تحميل image photo رقم {attempt + 1}")
             response = requests.get(image_url, timeout=19)
 
             if response.status_code == 200 and "image" in response.headers.get("Content-Type", ""):
@@ -91,7 +91,7 @@ def get_image_html(topic: str) -> str:
             print(f"⚠️ محاولة {attempt + 1} فشلت: {e}")
             time.sleep(2)
 
-    print("❌ فشل تحميل الصورة بعد 3 محاولات")
+    print("❌ falling dowload iamge after 3 tries")
     return '''
     <img src="https://via.placeholder.com/800x400?text=Image+Error" alt="Error Image" 
     style="width:100%;max-width:800px;height:auto;aspect-ratio:2/1;
