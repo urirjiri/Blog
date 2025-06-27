@@ -2,14 +2,14 @@ import json
 import os
 import re
 
-# 🔄 دالة لتوحيد العنوان قبل حفظه أو مقارنته
+ #save title
 def normalize_title(title: str) -> str:
     title = title.lower().strip()
     title = re.sub(r"[^\w\s]", "", title)  # إزالة الرموز مثل علامات التنصيص والنقاط
     title = re.sub(r"\s+", " ", title)  # إزالة الفراغات الزائدة
     return title
 
-# 📥 تحميل العناوين المنشورة مسبقًا
+# load posts
 def load_posted_titles():
     if os.path.exists("posted_articles.json"):
         with open("posted_articles.json", "r") as file:
@@ -19,7 +19,7 @@ def load_posted_titles():
                 return []
     return []
 
-# 💾 حفظ العنوان الجديد بعد تنسيقه
+# dowload
 def save_posted_title(title):
     posted = load_posted_titles()
     normalized_title = normalize_title(title)
@@ -28,7 +28,7 @@ def save_posted_title(title):
         with open("posted_articles.json", "w") as file:
             json.dump(posted, file)
 
-# 🧠 فحص إذا تم نشر العنوان مسبقًا (بعد تنظيفه)
+# publish
 def is_duplicate(title):
     normalized_title = normalize_title(title)
     return normalized_title in load_posted_titles()
