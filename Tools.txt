@@ -1,0 +1,8 @@
+gemeni
+chatgpt
+deepsick 
+coploit 
+pies.py
+ger.py
+peat.py
+menerator.pu
